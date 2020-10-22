@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS users;
 
-//creating user table
+/*creating users table*/
 CREATE TABLE users (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	user_name VARCHAR(250) NOT NULL UNIQUE,
@@ -12,14 +12,14 @@ CREATE TABLE users (
 	updated_at TIMESTAMP DEFAULT now()
 );
 
-//feeding user table data
+/*feeding user table data*/
 INSERT INTO users (user_name, first_name, last_name, password) VALUES ('abhi.hi', 'abhishek', 'jain', 'happiness');
 INSERT INTO users (user_name, first_name, last_name, password) VALUES ('abhihi', 'abhishek', 'jain', 'happiness');
 
 
 DROP TABLE IF EXISTS sessions;
 
-//creating session table
+/*creating session table*/
 CREATE TABLE sessions (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	user_id BIGINT NOT NULL,
@@ -29,28 +29,28 @@ CREATE TABLE sessions (
 	expires_at TIMESTAMP DEFAULT now()
 );
 
-//feeding session table data
+/*feeding session table data*/
 INSERT INTO sessions (user_id, token) VALUES(1, 'abcd');
 INSERT INTO sessions (user_id, token) VALUES(2, 'efgh');
 
 
 DROP TABLE IF EXISTS posts;
 
-//creating posts table
+/*creating posts table*/
 CREATE TABLE posts (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	user_id BIGINT NOT NULL,
 	data TEXT NOT NULL,
 	like_count INT DEFAULT 0,
 	created_at TIMESTAMP DEFAULT now(),
-	updated_at TIMESTAMp DEFAULT now()
+	updated_at TIMESTAMP DEFAULT now()
 );
 
 
 
 DROP TABLE IF EXISTS connections;
 
-//creating connections table
+/*creating connections table*/
 CREATE TABLE connections (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	user_id BIGINT NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE connections (
 
 DROP TABLE IF EXISTS likes;
 
-//creating likes table
+/*creating likes table*/
 CREATE TABLE likes (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	post_id BIGINT NOT NULL,
